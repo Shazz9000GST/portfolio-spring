@@ -3,6 +3,7 @@ package com.spring.springbootapplication.service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.spring.springbootapplication.form.UserRegisterForm;
+import com.spring.springbootapplication.form.LoginForm;
 import com.spring.springbootapplication.mapper.UserMapper;
 import com.spring.springbootapplication.model.User;
 
@@ -37,5 +38,25 @@ public class UserService {
 
     public boolean existsByEmail(String email) {
         return userMapper.existsByEmail(email);
+    }
+
+    public User login(LoginForm form) {
+        User user = userMapper.findByEmail(form.getEmail());
+
+        if (user == null) {
+            return null;
+        }
+
+        boolean passwordMatched =
+            passwordEncoder.matches(
+                form.getPassword(),
+                user.getPassword()
+            );
+
+        if (!passwordMatched) {
+            return null;
+        }
+
+        return user;
     }
 }
