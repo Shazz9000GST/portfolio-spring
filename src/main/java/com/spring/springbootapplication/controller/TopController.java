@@ -15,11 +15,14 @@ public class TopController {
 
         Long loginUserId =
                 (Long) session.getAttribute("loginUserId");
+        
+        if (loginUserId == null) {
+                return "redirect:/register";
+        }
+
         String loginUserName =
                 (String) session.getAttribute("loginUserName");
-        boolean loggedIn = loginUserId != null;
 
-        model.addAttribute("loggedIn", loggedIn);
         model.addAttribute("loginUserName", loginUserName);
 
         return "top";
