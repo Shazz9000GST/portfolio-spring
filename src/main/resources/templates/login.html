@@ -1,0 +1,94 @@
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width", initial-scale="1.0">
+
+  <title>ログイン</title>
+
+  <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-title">
+      My Portfolio
+    </div>
+  </header>
+
+  <main class="login-main">
+    <div class="login-container">
+      <h1 class="login-title">
+        ログイン
+      </h1>
+
+      <form
+        class="login-form"
+        th:action="@{/login}"
+        th:object="${loginForm}"
+        method="post"
+        novalidate
+      >
+    
+        <div class="form-group">
+          <label for="email">メールアドレス</label>
+
+          <input
+            type="email"
+            th:field="*{email}"
+            placeholder="example@example.com"
+          >
+
+          <p
+            class="field-error"
+            th:if="${#fields.hasErrors('email')}"
+            th:errors="*{email}"
+          ></p>
+        </div>
+      
+        <div class="form-group">
+          <label for="password">パスワード</label>
+
+          <input
+            type="password"
+            th:field="*{password}"
+            placeholder="パスワードを入力"
+          >
+
+          <p
+            class="field-error"
+            th:if="${#fields.hasErrors('password')}"
+            th:errors="*{password}"
+          ></p>
+        </div>
+      
+        <div
+          class="login-error"
+          th:if="${loginError}"
+          th:text="${loginError}"
+        ></div>
+      
+        <div class="login-button-area">
+          <button
+            type="submit"
+            class="login-submit-button"
+          >
+          ログインする
+          </button>
+
+          <a
+            th:href="@{/register}"
+            class="register-link-button"
+          >
+          新規登録する
+          </a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>portfolio site</p>
+  </footer>
+</body>
+</html>
