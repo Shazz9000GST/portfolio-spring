@@ -16,7 +16,7 @@ public class TopController {
         boolean loggedIn = loginUserId != null;
         
         if (!loggedIn) {
-                return "redirect:/register";
+                return "redirect:/login";
         }
 
         String loginUserName =

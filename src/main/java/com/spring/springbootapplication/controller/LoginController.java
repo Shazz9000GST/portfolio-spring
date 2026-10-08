@@ -34,7 +34,6 @@ public class LoginController {
   public String login(
       @Valid @ModelAttribute("loginForm") LoginForm form,
       BindingResult bindingResult,
-      Model model,
       HttpSession session,
       RedirectAttributes redirectAttributes) {
         // 入力値のバリデーション
