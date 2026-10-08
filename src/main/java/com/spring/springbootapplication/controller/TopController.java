@@ -9,18 +9,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class TopController {
 
     @GetMapping("/")
-    public String top(
-            HttpSession session,
-            Model model) {
-
+    public String top(HttpSession session, Model model) {
         Long loginUserId =
                 (Long) session.getAttribute("loginUserId");
+
+        boolean loggedIn = loginUserId != null;
+        
+        if (!loggedIn) {
+                return "redirect:/register";
+        }
+
         String loginUserName =
                 (String) session.getAttribute("loginUserName");
-        boolean loggedIn = loginUserId != null;
 
-        model.addAttribute("loggedIn", loggedIn);
         model.addAttribute("loginUserName", loginUserName);
+        model.addAttribute("loggedIn", loggedIn);
 
         return "top";
     }

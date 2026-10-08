@@ -19,8 +19,8 @@ public class UserRegisterForm {
     @NotBlank(message = "パスワードは必ず入力してください")
     @Size(max = 255, message = "パスワードは255文字以内で入力してください")
     @Pattern(
-        regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
-        message = "英数字8文字以上で入力してください"
+        regexp = "^(?:$|(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,})$",
+        message = "英数字８文字以上で入力してください"
     )
     private String password;
 
