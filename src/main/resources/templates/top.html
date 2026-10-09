@@ -3,21 +3,41 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>トップページ</title>
+
+    <link rel="stylesheet" th:href="@{/css/top.css}">
 </head>
 
 <body>
-    <h1>トップページ</h1>
-    <div th:if="${loggedIn}">
-        <p>ログイン中です。</p>
-        <p>
-            ユーザー名：
-            <span th:text="${loginUserName}"></span>
-        </p>
-    </div>
-    <div th:unless="${loggedIn}">
-        <p>ログインしていません。</p>
-    </div>
+    <header class="header">
+        <div class="header-title">
+            My Portfolio
+        </div>
+
+        <a th:href="@{/logout}" class="logout-button">
+            ログアウト
+        </a>
+    </header>
+
+    <main>
+        <h1>トップページ</h1>
+        <div th:if="${loggedIn}">
+            <p>ログイン中です。</p>
+            <p>
+                ユーザー名：
+                <span th:text="${loginUserName}"></span>
+            </p>
+        </div>
+        <div th:unless="${loggedIn}">
+            <p>ログインしていません。</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>portfolio site</p>
+    </footer>
 </body>
 
 </html>
