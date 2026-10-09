@@ -38,7 +38,9 @@ public class LoginController {
       RedirectAttributes redirectAttributes) {
         // 入力値のバリデーション
         if (bindingResult.hasErrors()) {
-          return "login";
+          redirectAttributes.addFlashAttribute("loginError", "メールアドレス、もしくはパスワードが間違っています");
+
+          return "redirect:/login";
         }
 
         // ログイン認証
@@ -47,8 +49,7 @@ public class LoginController {
         // 認証失敗
         if (user == null) {
           redirectAttributes.addFlashAttribute(
-            "loginError",
-            "メールアドレス、もしくはパスワードが間違っています"
+            "loginError", "メールアドレス、もしくはパスワードが間違っています"
           );
 
           return "redirect:/login";
