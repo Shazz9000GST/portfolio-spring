@@ -22,8 +22,11 @@ public class TopController {
         String loginUserName =
                 (String) session.getAttribute("loginUserName");
 
+        User loginUser = userService.findById(loginUserId);
+
         model.addAttribute("loginUserName", loginUserName);
         model.addAttribute("loggedIn", loggedIn);
+        model.addAttribute("loginUser", loginUser);
 
         return "top";
     }

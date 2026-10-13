@@ -34,6 +34,7 @@ public interface UserMapper {
         """)
     boolean existsByEmail(@Param("email") String email);
 
+    // ログインユーザー判別用
     @Select("""
             SELECT
                 id,
@@ -46,7 +47,22 @@ public interface UserMapper {
                 updated_date AS updatedDate
             FROM users
             WHERE email = #{email}
-            LIMIT 1
             """)
     User findByEmail(@Param("email") String email);
+
+    // トップページのユーザー判断用
+    @Select("""
+            SELECT
+                id,
+                user_name AS userName,
+                email,
+                password,
+                profile_image AS profileImage,
+                user_bio AS userBio,
+                created_date AS createdDate,
+                updated_date AS updatedDate
+            FROM users
+            WHERE id = #{id}
+            """)
+    User findById(@Param("id") Long id);
 }
