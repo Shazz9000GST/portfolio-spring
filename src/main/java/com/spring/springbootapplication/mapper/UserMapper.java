@@ -33,4 +33,20 @@ public interface UserMapper {
         WHERE email = #{email}
         """)
     boolean existsByEmail(@Param("email") String email);
+
+    @Select("""
+            SELECT
+                id,
+                user_name AS userName,
+                email,
+                password,
+                profile_image AS profileImage,
+                user_bio AS userBio,
+                created_date AS createdDate,
+                updated_date AS updatedDate
+            FROM users
+            WHERE email = #{email}
+            LIMIT 1
+            """)
+    User findByEmail(@Param("email") String email);
 }
