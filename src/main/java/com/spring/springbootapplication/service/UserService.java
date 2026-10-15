@@ -40,6 +40,10 @@ public class UserService {
         return userMapper.existsByEmail(email);
     }
 
+    public User findById(Long id) {
+        return userMapper.findById(id);
+    }
+
     public User login(LoginForm form) {
         User user = userMapper.findByEmail(form.getEmail());
 
