@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>トップページ</title>
+
+    <link rel="stylesheet" th:href="@{/css/profile-edit.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-title">
+            My Portfolio
+        </div>
+
+        <a th:href="@{/logout}" class="logout-button">
+            ログアウト
+        </a>
+    </header>
+
+    <h1>
+        自己紹介を編集する
+    </h1>
+
+    <main>
+        <form
+            class="wrapper"
+            th:action="@{/profile-edit}"
+            th:object="${profileEditForm}"
+            method="post"
+            enctype="multipart/form-data"
+            novalidate
+        >
+                <div class="form-group">
+                    <label for="userBio">自己紹介文</label>
+                    <textarea
+                        id="userBio"
+                        th:field="*{userBio}"
+                        rows="5"
+                    ></textarea>
+
+                    <!-- 通常時のヒント -->
+                    <p 
+                        class="form-hint"
+                        th:unless="${#fields.hasErrors('userBio')}"
+                    >
+                        50文字以上、200文字以下で入力してください
+                    </p>
+
+                    <!-- バリデーションエラー時 -->
+                    <p
+                        class="field-error"
+                        th:if="${#fields.hasErrors('userBio')}"
+                    >
+                        自己紹介は50文字以上200文字以下で入力してください
+                    </p>
+                </div>
+
+                <div class="avatar-group">
+                    <p class="avatar-label">
+                        アバター画像
+                    </p>
+                    <input
+                        type="file"
+                        id="avatarImageFile"
+                        name="profileImageFile"
+                        class="avatar-image-input"
+                        accept="image/*"
+                    >
+                    <label
+                        for="avatarImageFile"
+                        class="avatar-image-button">
+                        画像ファイルを添付する
+                    </label>
+                    <span id="selectedFileName"></span>
+                </div>
+
+                <button 
+                    type="submit"
+                    class="profile-submit-button">
+                    自己紹介を確定する
+                </button>
+        </form>
+    </main>
+
+    <footer class="footer">
+      <p>portfolio site</p>
+    </footer>
+
+    <script>
+        const fileInput = document.getElementById("avatarImageFile");
+        const fileName = document.getElementById("selectedFileName");
+
+        fileInput.addEventListener("change", function() {
+            fileName.textContent = this.files.length > 0
+                ? this.files[0].name
+                : "";
+        });
+    </script>
+</body>
+
+</html>
