@@ -53,8 +53,9 @@
 
                     <!-- バリデーションエラー時 -->
                     <p
+                        id="userBioError"
                         class="field-error"
-                        th:if="${#fields.hasErrors('userBio')}"
+                        th:style="${#fields.hasErrors('userBio')} ? '' : 'display: none;'"
                     >
                         自己紹介は50文字以上200文字以下で入力してください
                     </p>
@@ -99,6 +100,28 @@
             fileName.textContent = this.files.length > 0
                 ? this.files[0].name
                 : "";
+        });
+
+        const form = document.querySelector(".wrapper");
+        const userBio = document.getElementById("userBio");
+        const userBioError = document.getElementById("userBioError");
+        const formHint = document.querySelector(".form-hint");
+
+        form.addEventListener("submit", function(event) {
+            const text = userBio.value;
+
+            if (
+                text.trim().length === 0 ||
+                text.length < 50 ||
+                text.length > 200
+            ) {
+                event.preventDefault();
+                userBioError.style.display = "block";
+
+                if (formHint) {
+                    formHint.style.display = "none";
+                }
+            }
         });
     </script>
 </body>
