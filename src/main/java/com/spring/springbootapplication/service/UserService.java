@@ -63,4 +63,8 @@ public class UserService {
 
         return user;
     }
+
+    public void updateProfile(Long id, String userBio, String profileImage) {
+        userMapper.updateProfile(id, userBio, profileImage);
+    }
 }

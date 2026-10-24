@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.spring.springbootapplication.model.User;
 
@@ -65,4 +66,19 @@ public interface UserMapper {
             WHERE id = #{id}
             """)
     User findById(@Param("id") Long id);
+
+    // プロフィール情報更新
+    @Update("""
+        UPDATE users
+        SET
+            user_bio = #{userBio},
+            profile_image = COALESCE(#{profileImage}, profile_image),
+            updated_date = CURRENT_TIMESTAMP
+        WHERE id = #{id}
+        """)
+    int updateProfile(
+        @Param("id") Long id,
+        @Param("userBio") String userBio,
+        @Param("profileImage") String profileImage
+    );
 }

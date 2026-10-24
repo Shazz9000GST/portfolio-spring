@@ -1,0 +1,195 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+/* ヘッダー */
+.header {
+  margin: 0px;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: space-between;
+  padding: 0 80px;
+  background-color: #1B5678;
+}
+
+
+/* My Portfolio */
+.header-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+/* ログアウトボタン */
+.logout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 40px;
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.75);
+  font-size: 18px;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.header-title {
+  font-size: 36px;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+/* タイトル */
+h1 {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 48px;
+  width: 324px;
+  font-size: 36px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.75);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* メイン部分 */
+main {
+  flex: 1;
+}
+
+.wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 328px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 960px;
+  gap: 48px;
+}
+
+/* 自己紹介文フォーム群 */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  gap: 3px;
+}
+
+label {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+textarea {
+  width: 480px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.87);
+  border: none;
+  border-bottom: 1px solid #000;
+  outline: none;
+  resize: none;
+}
+
+.form-hint {
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.field-error {
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  color: #ff0000;
+}
+
+/* アバター画像群 */
+.avatar-group {
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  gap: 3px;
+}
+
+.avatar-label {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.avatar-image-button {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 8px 24px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.avatar-image-input {
+  display: none;
+}
+
+/* 確定ボタン */
+.profile-submit-button {
+  padding: 16px 80px;
+  background-color: #1B5678;
+  border-radius: 4px;
+  font-size: 18px;
+  line-height: 100%;
+  font-weight: 400;
+  color: #fff;
+  border: none;
+}
+
+/* フッター */
+
+.footer {
+  margin: 0px;
+  width: 100%;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1B5678;
+  z-index: 1000;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 18px;
+  color: #FFFFFF;
+}
