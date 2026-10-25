@@ -1,0 +1,309 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    margin: 0px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+}
+
+/* ヘッダー */
+
+.header {
+    margin: 0px;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    justify-content: space-between;
+    padding: 0 80px;
+    background-color: #1B5678;
+}
+
+
+/* My Portfolio */
+.header-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+
+/* ログアウトボタン */
+.logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    background-color: #FFFFFF;
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 18px;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* メイン */
+main {
+    height: 1599px;
+    width: 100%;
+    max-width: 100%;
+    padding-bottom: 40px;
+    flex: none;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    height: 1512px;
+    width: 960px;
+    padding: 40px;
+    gap: 40px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 月選択全体 */
+.month-dropdown {
+    position: relative;
+    width: 144px;
+}
+
+/* 月選択ボタン */
+.month-button {
+    width: 94px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8 16px;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: #000000;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: pointer;
+    gap: 8px;
+}
+
+/* 下向き三角形 */
+.month-arrow {
+    width: 12.12px;
+    height: 9px;
+    color: #000;
+    flex-shrink: 0;
+}
+
+/* 月選択メニュー */
+.month-menu {
+    width: 94px;
+    position: absolute;
+    top: calc(100% + 16px);
+    padding: 8px 0;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-shadow: 0  4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 10;
+}
+
+/* 非表示状態 */
+.month-menu[hidden] {
+    display: none;
+}
+
+/* 月の選択肢 */
+.month-menu a {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    color: #000000;
+    font-size: 24px;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* マウスを重ねたとき */
+.month-menu a:hover {
+    background-color: #F0F0F0;
+}
+
+/* 選択中の月 */
+.month-menu a.selected {
+    font-weight: 700;
+}
+
+.month-button[aria-expanded="true"] {
+    background-color: #DDD;
+}
+
+/* スキルカテゴリー */
+.skill-category {
+    width: 960px;
+    padding: 40px;
+    gap: 80px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+/* カテゴリー見出し */
+.category-header {
+    width: 880px;
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+h2 {
+    height: 44px;
+    width: 240px;
+    gap: 16px;
+    margin: 0px 0px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.add-button {
+    padding: 16px 40px;
+    background-color: #1B5678;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #FFF;
+    border: none;
+    text-align: center;
+}
+
+/* スキル群 */
+.skill-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* テーブル周り */
+.skill-table th:nth-child(1) {
+    width: 240px;
+    padding-left: 40px;
+}
+
+.skill-table tbody td:nth-child(1) {
+    padding-left: 40px;
+}
+
+.skill-table th:nth-child(2) {
+    width: 240px;
+    padding: 16px;
+}
+
+.skill-table th:nth-child(3) {
+    width: 200px;
+    padding: 16px;
+}
+
+.skill-table th:nth-child(4) {
+    width: 200px;
+    padding-left: 40px;
+}
+
+.skill-table tbody td:nth-child(4) {
+    text-align: right;
+    padding-right: 40px;
+}
+
+.skill-table thead tr {
+    height: 56px;
+}
+
+.skill-table tbody tr {
+    height: 72px;
+}
+
+.skill-table th,
+.skill-table td {
+    padding: 16px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+th {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.87);
+    font-weight: 500;
+}
+
+td {
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: 0.15px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+
+/* 学習時間入力欄 */
+.study-hours {
+    width: 160px;
+    height: 40px;
+    padding: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.23);
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    font-size: 14px;
+    letter-spacing: 0.15px;
+}
+
+/* 保存ボタンと削除ボタン */
+.save-button {
+    padding: 8px 16px;
+    border: 1px solid #1B5678;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: #1B5678;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.delete-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #EE6969;
+    color: #FFFFFF;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* フッター */
+
+.footer {
+    margin: 0px;
+    width: 100%;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1B5678;
+    z-index: 1000;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 18px;
+    color: #FFFFFF;
+    font-weight: 400;
+}
