@@ -60,6 +60,7 @@ main {
 .wrapper {
     height: 582px;
     width: 960px;
+    position: relative;
 }
 
 /* プロフィール本体 */
@@ -155,6 +156,49 @@ main {
     border-radius: 4px;
     padding: 16px 40px;
     align-self: flex-start;
+}
+
+/* チャートタイトル */
+.chart-container {
+    width: 960px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 480px;
+    position: absolute;
+}
+
+.title-container {
+    gap: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.chart-title {
+    width: 400px;
+    height: 58px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 36px;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.skill-edit-button {
+    width: 152px;
+    height: 53px;
+    padding: 16px 40px;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    background-color: #1B5678;
+    color: #FFF;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* フッター */

@@ -80,7 +80,7 @@ main {
     width: 94px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 8 16px;
     border: 1px solid #DDD;
     border-radius: 4px;
@@ -181,6 +181,9 @@ h2 {
     color: #FFF;
     border: none;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* スキル群 */
