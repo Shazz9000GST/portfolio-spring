@@ -50,7 +50,6 @@ body {
 
 /* メイン */
 main {
-    height: 1599px;
     width: 100%;
     max-width: 100%;
     padding-bottom: 40px;
@@ -60,7 +59,6 @@ main {
 }
 
 .wrapper {
-    height: 1512px;
     width: 960px;
     padding: 40px;
     gap: 40px;
@@ -301,7 +299,6 @@ td {
     align-items: center;
     justify-content: center;
     background-color: #1B5678;
-    z-index: 1000;
 }
 
 .footer p {
