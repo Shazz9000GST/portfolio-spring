@@ -27,11 +27,8 @@
             <div class="profile">
                 <div class="profile-left">
                     <div class="profile-icon">
-                        <img
-                            th:if="${!#strings.isEmpty(loginUser.profileImage)}"
-                            th:src="${loginUser.profileImage}"
-                            alt="プロフィール画像"
-                        >
+                        <img th:if="${!#strings.isEmpty(loginUser.profileImage)}" th:src="${loginUser.profileImage}"
+                            alt="プロフィール画像">
                     </div>
 
                     <p class="profile-name" th:text="${loginUser.userName}"></p>
@@ -42,15 +39,21 @@
                         自己紹介
                     </p>
 
-                    <p 
-                        class="profile-bio"
-                        th:text="${loginUser.userBio}">
+                    <p class="profile-bio" th:text="${loginUser.userBio}">
                     </p>
 
-                    <a
-                        th:href="@{/profile-edit}"
-                        class="profile-edit-button">
+                    <a th:href="@{/profile-edit}" class="profile-edit-button">
                         自己紹介を編集する
+                    </a>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="title-container">
+                    <p class="chart-title">
+                        学習チャート
+                    </p>
+                    <a th:href="@{/skill-list}" class="skill-edit-button">
+                        編集する
                     </a>
                 </div>
             </div>
