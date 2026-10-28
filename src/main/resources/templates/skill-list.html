@@ -49,9 +49,9 @@
             <section class="skill-category" th:each="category : ${categories}">
                 <div class="category-header">
                     <h2 th:text="${category.name}"></h2>
-                    <button type="button" class="add-button" disabled>
+                    <a th:href="@{/skill-add(category=${category.name}, month=${selectedMonth})}" class="add-button">
                         項目を追加する
-                    </button>
+                    </a>
                 </div>
 
                 <table class="skill-table">

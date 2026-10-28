@@ -61,6 +61,7 @@ main {
 .page-title {
     margin-bottom: 64px;
     font-size: 36px;
+    font-weight: 400;
     line-height: 133%;
     letter-spacing: 0px;
     color: rgba(0, 0, 0, 0.75);
@@ -84,7 +85,6 @@ main {
 }
 
 .form-group label {
-    margin-bottom: 8px;
     font-size: 12px;
     line-height: 12px;
     color: rgba(0, 0, 0, 0.54);
@@ -93,22 +93,30 @@ main {
 .form-group input {
     width: 100%;
     height: 48px;
-    padding: 8px 0;
+    padding: 0px 0px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.42);
     border-radius: 0;
     background-color: #FFFFFF;
     font-size: 16px;
+    line-height: 16px;
     outline: none;
+    gap: 10px;
 }
 
 /* 学習時間ヒント */
 .form-help {
-    margin-top: 8px;
+    margin-top: 3px;
     font-size: 12px;
     line-height: 20px;
     letter-spacing: 0.4px;
     color: rgba(0, 0, 0, 0.54);
+}
+/* バリデーションメッセージ */
+.validation-error {
+    color: #FF0000;
+    font-size: 12px;
+    margin-top: 3px;
 }
 
 /* 登録ボタン */
@@ -145,14 +153,14 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 32px;
+    gap: 40px;
     padding: 24px;
-    border-radius: 4px;
 }
 
 /* 登録完了メッセージ */
 .success-message {
     font-size: 18px;
+    font-weight: 700;
     text-align: center;
     line-height: 1.8;
     color: rgba(0, 0, 0, 0.75);
@@ -166,7 +174,7 @@ main {
     padding: 16px 40px;
     background-color: #1B5678;
     color: #FFFFFF;
-    font-size: 18px;
+    font-size: 14px;
     text-decoration: none;
     border-radius: 4px;
 }
