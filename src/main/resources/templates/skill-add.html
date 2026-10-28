@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>学習項目追加</title>
+
+    <link rel="stylesheet" th:href="@{/css/skill-add.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header-title">My Portfolio</h1>
+
+        <a th:href="@{/logout}" class="logout-button">
+            ログアウト
+        </a>
+    </header>
+
+    <div class="modal-overlay"
+          th:if="${registrationSuccess}">
+        
+        <div class="success-modal">
+            <p class="success-message">
+                <span th:text="${category}"></span>に
+                「<span th:text="${registeredSkillName}"></span>」を
+                「<span th:text="${registeredStudyHours}"></span>」分で追加しました！
+            </p>
+
+            <a class="modal-back-button"
+                th:href="@{/skill-list(month=${electedMonth})}">
+                編集ページに戻る
+            </a>
+        </div>
+    <main>
+        <div class="wrapper">
+            <h2 class="page-title"
+                th:text="${category} + 'に項目を追加'">
+            </h2>
+
+            <form class="skill-add-form" method="post">
+                <div class="form-group">
+                    <label for="skill-name">項目名</label>
+
+                    <input
+                        type="text"
+                        id="skill-name"
+                        name="skillName"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="study-hours">学習時間</label>
+
+                    <input
+                        type="number"
+                        id="study-hours"
+                        name="studyHours"
+                        min="0"
+                        step="1"
+                        required>
+
+                    <p class="form-help">
+                        分単位で入力してください
+                    </p>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    追加する
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>portfolio site</p>
+    </footer>
+</body>
+</html>
