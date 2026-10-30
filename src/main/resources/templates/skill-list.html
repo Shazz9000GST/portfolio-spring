@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>トップページ</title>
-
+    <title>学習項目一覧</title>
+    
     <link rel="stylesheet" th:href="@{/css/skill-list.css}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
 </head>
@@ -49,9 +49,9 @@
             <section class="skill-category" th:each="category : ${categories}">
                 <div class="category-header">
                     <h2 th:text="${category.name}"></h2>
-                    <button type="button" class="add-button" disabled>
+                    <a th:href="@{/skill-add(category=${category.name}, month=${selectedMonth})}" class="add-button">
                         項目を追加する
-                    </button>
+                    </a>
                 </div>
 
                 <table class="skill-table">

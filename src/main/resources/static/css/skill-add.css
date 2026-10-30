@@ -1,0 +1,193 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+}
+
+/* ヘッダー */
+.header {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    padding: 0 80px;
+    background-color: #1B5678;
+}
+
+.header-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 40px;
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* メイン部分 */
+main {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 960px;
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* タイトル */
+.page-title {
+    margin-bottom: 64px;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 133%;
+    letter-spacing: 0px;
+    color: rgba(0, 0, 0, 0.75);
+    text-align: center;
+}
+
+/* 項目追加フォーム */
+.skill-add-form {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* 入力項目 */
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 12px;
+    line-height: 12px;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.form-group input {
+    width: 100%;
+    height: 48px;
+    padding: 0px 0px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    border-radius: 0;
+    background-color: #FFFFFF;
+    font-size: 16px;
+    line-height: 16px;
+    outline: none;
+    gap: 10px;
+}
+
+/* 学習時間ヒント */
+.form-help {
+    margin-top: 3px;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.4px;
+    color: rgba(0, 0, 0, 0.54);
+}
+/* バリデーションメッセージ */
+.validation-error {
+    color: #FF0000;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+/* 登録ボタン */
+.submit-button {
+    align-self: center;
+    padding: 16px 80px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1B5678;
+    color: #FFFFFF;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* モーダル群 */
+/* 登録完了モーダルの背景 */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* モーダル本体 */
+.success-modal {
+    width: 640px;
+    height: 240px;
+    max-width: calc(100% - 32px);
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 24px;
+}
+
+/* 登録完了メッセージ */
+.success-message {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+/* 編集ページに戻るボタン */
+.modal-back-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 40px;
+    background-color: #1B5678;
+    color: #FFFFFF;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* フッター */
+.footer {
+    width: 100%;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1B5678;
+    color: #FFFFFF;
+    font-size: 18px;
+}
