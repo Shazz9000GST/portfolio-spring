@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.Param;
 import java.time.LocalDate;
 import java.util.List;
@@ -69,4 +70,16 @@ public interface SkillMapper {
         @Param("categoryId") Long categoryId,
         @Param("studyMonth") LocalDate studyMonth,
         @Param("skillName") String skillName);
+
+    @Update("""
+        UPDATE learning_data
+        SET study_time = #{studyHours}
+        WHERE id = #{skillId}
+        AND user_id = #{userId}
+    """)
+
+    int updateStudyTime(
+        @Param("skillId") Long skillId,
+        @Param("userId") Long userId,
+        @Param("studyHours") Integer studyHours);
 }

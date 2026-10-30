@@ -45,4 +45,9 @@ public class SkillService {
       studyMonth,
       skillName);
     }
+
+  // 学習時間を更新する
+  public int updateStudyTime(Long skillId, Long userId, Integer studyHours) {
+    return skillMapper.updateStudyTime(skillId, userId, studyHours);
+  }
 }
