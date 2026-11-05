@@ -22,6 +22,18 @@
         </a>
     </header>
 
+    <div class="modal-overlay" th:if="${studyTimeSuccess}">
+        <div class="success-modal">
+            <p class="success-message">
+                <span th:text="${registeredSkillName}"></span>の学習時間を保存しました!
+            </p>
+
+            <a class="modal-back-button" th:href="@{/skill-list(month=${selectedMonth})}">
+                編集ページに戻る
+            </a>
+        </div>
+    </div>
+
     <main>
         <div class="wrapper">
             <!-- 月選択プルダウン -->
@@ -69,11 +81,17 @@
                             <td th:text="${item.name}"></td>
 
                             <td>
-                                <input type="number" class="study-hours" th:value="${item.studyHours}" min="0" disabled>
+                                <form th:id="${'study-form-' + item.id}" th:action="@{/skill-list/study-time}" method="post" novalidate>
+                                    <input type="hidden" name="skillId" th:value="${item.id}">
+                                    <input type="hidden" name="month" th:value="${selectedMonth}">
+                                    <input type="hidden" name="skillName" th:value="${item.name}">
+                                    <input type="number" class="study-hours" name="studyHours" th:value="${studyTimeErrorId == item.id ? inputStudyHours : item.studyHours}" min="0" step="1">
+                                    <p class="validation-error" th:if="${studyTimeErrorId == item.id and studyTimeError != null}" th:text="${studyTimeError}"></p>
+                                </form>
                             </td>
 
                             <td>
-                                <button type="button" class="save-button" disabled>
+                                <button type="submit" class="save-button" th:attr="form=${'study-form-' + item.id}">
                                     学習時間を保存する
                                 </button>
                             </td>

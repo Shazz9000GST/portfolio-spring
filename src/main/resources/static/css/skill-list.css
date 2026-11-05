@@ -261,12 +261,22 @@ td {
 .study-hours {
     width: 160px;
     height: 40px;
-    padding: 16px;
+    padding-left: 12px;
     border: 1px solid rgba(0, 0, 0, 0.23);
     border-radius: 4px;
     background-color: #FFFFFF;
     font-size: 14px;
     letter-spacing: 0.15px;
+    justify-content: space-between;
+    outline: none;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+/* バリデーションメッセージ */
+.validation-error {
+    color: #FF0000;
+    font-size: 12px;
+    margin-top: 3px;
 }
 
 /* 保存ボタンと削除ボタン */
@@ -278,7 +288,9 @@ td {
     color: #1B5678;
     font-size: 14px;
     white-space: nowrap;
+    cursor: pointer;
 }
+
 
 .delete-button {
     padding: 8px 16px;
@@ -288,6 +300,53 @@ td {
     color: #FFFFFF;
     font-size: 14px;
     white-space: nowrap;
+}
+
+/* モーダル群 */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* モーダル本体 */
+.success-modal {
+    width: 640px;
+    height: 240px;
+    max-width: calc(100% - 32px);
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 24px;
+}
+
+/* 登録完了メッセージ */
+.success-message {
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+/* 編集ページに戻るボタン */
+.modal-back-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 40px;
+    background-color: #1B5678;
+    color: #FFFFFF;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 4px;
 }
 
 /* フッター */
