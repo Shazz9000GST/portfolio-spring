@@ -300,6 +300,7 @@ td {
     color: #FFFFFF;
     font-size: 14px;
     white-space: nowrap;
+    cursor: pointer;
 }
 
 /* モーダル群 */
