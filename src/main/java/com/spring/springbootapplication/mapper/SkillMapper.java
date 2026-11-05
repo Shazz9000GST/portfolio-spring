@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Param;
 import java.time.LocalDate;
 import java.util.List;
@@ -82,4 +83,13 @@ public interface SkillMapper {
         @Param("skillId") Long skillId,
         @Param("userId") Long userId,
         @Param("studyHours") Integer studyHours);
+
+    @Delete("""
+        DELETE FROM learning_data
+        WHERE id = #{skillId}
+        AND user_id = #{userId}
+    """)
+    int deleteSkill(
+        @Param("skillId") Long skillId,
+        @Param("userId") Long userId);
 }
