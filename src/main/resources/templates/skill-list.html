@@ -34,6 +34,18 @@
         </div>
     </div>
 
+    <div class="modal-overlay" th:if="${deleteSuccess}">
+        <div class="success-modal">
+            <p class="success-message">
+                <span th:text="${deletedSkillName}"></span>を削除しました!
+            </p>
+
+            <a class="modal-back-button" th:href="@{/skill-list(month=${selectedMonth})}">
+                編集ページに戻る
+            </a>
+        </div>
+    </div>
+
     <main>
         <div class="wrapper">
             <!-- 月選択プルダウン -->
@@ -97,9 +109,15 @@
                             </td>
 
                             <td>
-                                <button type="button" class="delete-button" disabled>
-                                    削除する
-                                </button>
+                                <form th:action="@{/skill-list/delete}" method="post">
+                                    <input type="hidden" name="skillId" th:value="${item.id}">
+                                    <input type="hidden" name="skillName" th:value="${item.name}">
+                                    <input type="hidden" name="month" th:value="${selectedMonth}">
+
+                                    <button type="submit" class="delete-button">
+                                        削除する
+                                    </button>
+                                </form>
                             </td>
                         </tr>
 

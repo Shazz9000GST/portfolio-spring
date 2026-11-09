@@ -164,6 +164,36 @@ public class SkillListController {
         return "redirect:/skill-list";
     }
 
+    @PostMapping("/skill-list/delete")
+    public String deleteSkill(
+            @RequestParam Long skillId,
+            @RequestParam String skillName,
+            @RequestParam String month,
+            HttpSession session,
+            RedirectAttributes redirectAttributes) {
+
+        // ログインチェック
+        Long loginUserId = (Long) session.getAttribute("loginUserId");
+
+        if (loginUserId == null) {
+            return "redirect:/login";
+        }
+
+        // DBから項目削除
+        int deleteCount = skillService.deleteSkill(skillId, loginUserId);
+
+        // 削除成功判定
+        if (deleteCount > 0) {
+            redirectAttributes.addFlashAttribute("deleteSuccess", true);
+            redirectAttributes.addFlashAttribute("deletedSkillName", skillName);
+        }
+
+        // 一覧に戻る
+        redirectAttributes.addAttribute("month", month);
+
+        return "redirect:/skill-list";
+    }
+
     // 月選択用
     public record MonthOption(String value, String label) {
     }

@@ -50,4 +50,10 @@ public class SkillService {
   public int updateStudyTime(Long skillId, Long userId, Integer studyHours) {
     return skillMapper.updateStudyTime(skillId, userId, studyHours);
   }
+
+  // 項目削除
+  @Transactional
+  public int deleteSkill(Long skillId, Long userId) {
+    return skillMapper.deleteSkill(skillId, userId);
+  }
 }
