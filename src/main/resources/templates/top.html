@@ -11,6 +11,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
 </head>
 
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<script th:inline="javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+        const chartData = /*[[${chartData}]]*/[];
+        const labels = chartData.map(data => data.month);
+        const ctx = document.getElementById("studyChart");
+
+        console.log("ctx:", ctx);
+        console.log("canvas:", document.getElementById("studyChart"));
+        console.log("読み込み状態:", document.readyState);
+
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "バックエンド",
+                        data: chartData.map(data => data.backend),
+                        backgroundColor: "rgba(242, 182, 196, 0.65)",
+                        borderColor: "#EFA1B3",
+                        borderWidth: 1,
+                        barPercentage: 0.75,
+                        categoryPercentage: 0.8
+                    },
+                    {
+                        label: "フロントエンド",
+                        data: chartData.map(data => data.frontend),
+                        backgroundColor: "rgba(247, 209, 174, 0.65)",
+                        borderColor: "#F4B981",
+                        borderWidth: 1,
+                        barPercentage: 0.75,
+                        categoryPercentage: 0.8
+                    },
+                    {
+                        label: "インフラ",
+                        data: chartData.map(data => data.infra),
+                        backgroundColor: "rgba(251, 230, 180, 0.65)",
+                        borderColor: "#F6D28A",
+                        borderWidth: 1,
+                        barPercentage: 0.75,
+                        categoryPercentage: 0.8
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+
+                plugins: {
+                    legend: {
+                        position: "top"
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return context.dataset.label + ": " + context.parsed.y + "時間";
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        suggestedMax: 100,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+
 <body>
     <header class="header">
         <div class="header-title">
@@ -55,6 +130,10 @@
                     <a th:href="@{/skill-list}" class="skill-edit-button">
                         編集する
                     </a>
+                </div>
+
+                <div class="chart-wrapper">
+                    <canvas id="studyChart"></canvas>
                 </div>
             </div>
         </div>
