@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.List;
+import java.util.ArrayList;
+import java.time.ZoneId;
 
 @Service
 public class SkillService {
@@ -55,5 +57,48 @@ public class SkillService {
   @Transactional
   public int deleteSkill(Long skillId, Long userId) {
     return skillMapper.deleteSkill(skillId, userId);
+  }
+
+  // チャート用の学習時間を取得
+  public List<MonthlyStudyHours> getMonthlyStudyHours(Long userId) {
+    YearMonth currentMonth = YearMonth.now(ZoneId.of("Asia/Tokyo"));
+
+    Long backendId = findCategoryIdByName("バックエンド");
+    Long frontendId = findCategoryIdByName("フロントエンド");
+    Long infraId = findCategoryIdByName("インフラ");
+
+    List<MonthlyStudyHours> chartData = new ArrayList<>();
+
+    for (int i = 2; i >= 0; i--) {
+      YearMonth targetMonth = currentMonth.minusMonths(i);
+
+      List<Skill> skills = getSkillsByMonth(userId, targetMonth);
+
+      int backendHours = 0;
+      int frontendHours = 0;
+      int infraHours = 0;
+
+      for (Skill skill : skills) {
+        if (backendId != null && backendId.equals(skill.getCategoryId())) {
+          backendHours += skill.getStudyTime();
+        } else if (frontendId != null && frontendId.equals(skill.getCategoryId())) {
+          frontendHours += skill.getStudyTime();
+        } else if (infraId != null && infraId.equals(skill.getCategoryId())) {
+          infraHours += skill.getStudyTime();
+        }
+      }
+
+      String monthLabel = switch (i) {
+        case 2 -> "先々月";
+        case 1 -> "先月";
+        default -> "今月";
+      };
+
+      chartData.add(new MonthlyStudyHours(monthLabel, backendHours, frontendHours, infraHours));
+    }
+    return chartData;
+  }
+  public record MonthlyStudyHours(String month, int backend, int frontend, int infra) {
+
   }
 }
