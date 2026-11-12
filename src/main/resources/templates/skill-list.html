@@ -13,9 +13,9 @@
 
 <body>
     <header class="header">
-        <div class="header-title">
+        <a th:href="@{/}" class="header-title">
             My Portfolio
-        </div>
+        </a>
 
         <a th:href="@{/logout}" class="logout-button">
             ログアウト
@@ -77,7 +77,8 @@
                         項目を追加する
                     </a>
                 </div>
-
+                <div class="table-scroll"
+                        th:classappend="${#lists.size(category.items) >= 4} ? 'is-scrollable' : ''">
                 <table class="skill-table">
                     <thead>
                         <tr>
@@ -128,6 +129,7 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </section>
         </div>
     </main>

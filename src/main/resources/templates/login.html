@@ -11,16 +11,16 @@
 
 <body>
   <header class="header">
-    <div class="header-title">
+    <a th:href="@{/}" class="header-title">
       My Portfolio
-    </div>
+    </a>
   </header>
 
   <main class="login-main">
     <div class="login-container">
-      <h1 class="login-title">
+      <div class="login-title">
         ログイン
-      </h1>
+      </div>
 
       <form class="login-form" th:action="@{/login}" th:object="${loginForm}" method="post" novalidate>
 

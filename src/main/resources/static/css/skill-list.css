@@ -31,6 +31,7 @@ body {
     font-size: 36px;
     font-weight: 700;
     color: #FFFFFF;
+    text-decoration: none;
 }
 
 
@@ -256,6 +257,18 @@ td {
     color: rgba(0, 0, 0, 0.87);
 }
 
+.table-scroll.is-scrollable {
+    max-height: 260px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.skill-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #FFF;
+}
 
 /* 学習時間入力欄 */
 .study-hours {
